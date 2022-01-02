@@ -17,6 +17,9 @@
       <categories>
         <category>test</category>
       </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
   </entry>
   <entry>
     <title>test2</title>
@@ -236,5 +239,8 @@
       <categories>
         <category>消息队列</category>
       </categories>
+      <tags>
+        <tag>消息队列</tag>
+      </tags>
   </entry>
 </search>
