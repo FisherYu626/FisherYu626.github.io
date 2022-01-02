@@ -237,10 +237,10 @@
 <p>Kafka一般应用在大数据日志处理或对实时性（少量延迟），可靠性（少量丢数据）要求稍低的场景使用。</p>
 ]]></content>
       <categories>
-        <category>消息队列</category>
+        <category>MessageQueue</category>
       </categories>
       <tags>
-        <tag>消息队列</tag>
+        <tag>MessageQueue</tag>
       </tags>
   </entry>
 </search>
