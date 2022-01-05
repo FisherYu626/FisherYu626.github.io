@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-05T05:07:00.086Z</updated>
+  <updated>2022-01-05T05:08:27.190Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,12 @@
     <link href="http://example.com/2022/01/05/test3/"/>
     <id>http://example.com/2022/01/05/test3/</id>
     <published>2022-01-05T04:55:23.000Z</published>
-    <updated>2022-01-05T05:07:00.086Z</updated>
+    <updated>2022-01-05T05:08:27.190Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="c-学习笔记"><a href="#c-学习笔记" class="headerlink" title="c++学习笔记"></a>c++学习笔记</h1><h2 id="1-宏定义："><a href="#1-宏定义：" class="headerlink" title="1.宏定义："></a>1.宏定义：</h2><p>​    </p><p><img src="source\images\image-20211018185259169.png" alt=""></p><p>宏替换发生的4种情况：</p><p>1.文件包含，将源程序中的#include扩展到文件中正文，将包含.h的文件展开到#include所在处</p><p>2.条件编译：预处理器根据#if和#ifdef等编译命令及其后的条件，将源程序中的某部分包含进来或排除在外，通常把排除在外的语句转换成空行。</p><p>3.宏展开：预处理器将源程序文件中出现的对宏的引用展开（替换）成相应的宏定义，即本文所说的#define的功能，由预处理器来完成。<br>  经过预处理器处理的源程序与之前的源程序有所有不同，在这个阶段所进行的工作只是纯粹的替换与展开，没有任何计算功能。</p><h2 id="2-C-接口（抽象类）"><a href="#2-C-接口（抽象类）" class="headerlink" title="2.C++ 接口（抽象类）"></a>2.C++ 接口（抽象类）</h2><p>如果一个类中至少包含一个纯虚函数，则这个类是一个抽象类。</p><p>纯虚函数在声明时使用“=0”来指定。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="c-学习笔记"><a href="#c-学习笔记" class="headerlink" title="c++学习笔记"></a>c++学习笔记</h1><h2 id="1-宏定义："><a href="#1-宏定义：" class="headerlink" title="1.宏定义："></a>1.宏定义：</h2><span id="more"></span><p><img src="images/image-20211018185259169.png" alt=""></p><p>宏替换发生的4种情况：</p><p>1.文件包含，将源程序中的#include扩展到文件中正文，将包含.h的文件展开到#include所在处</p><p>2.条件编译：预处理器根据#if和#ifdef等编译命令及其后的条件，将源程序中的某部分包含进来或排除在外，通常把排除在外的语句转换成空行。</p><p>3.宏展开：预处理器将源程序文件中出现的对宏的引用展开（替换）成相应的宏定义，即本文所说的#define的功能，由预处理器来完成。<br>  经过预处理器处理的源程序与之前的源程序有所有不同，在这个阶段所进行的工作只是纯粹的替换与展开，没有任何计算功能。</p><h2 id="2-C-接口（抽象类）"><a href="#2-C-接口（抽象类）" class="headerlink" title="2.C++ 接口（抽象类）"></a>2.C++ 接口（抽象类）</h2><p>如果一个类中至少包含一个纯虚函数，则这个类是一个抽象类。</p><p>纯虚函数在声明时使用“=0”来指定。</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h1 id=&quot;c-学习笔记&quot;&gt;&lt;a href=&quot;#c-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;c++学习笔记&quot;&gt;&lt;/a&gt;c++学习笔记&lt;/h1&gt;&lt;h2 id=&quot;1-宏定义：&quot;&gt;&lt;a href=&quot;#1-宏定义：&quot; class=&quot;headerlink&quot; ti</summary>
-      
+    <summary type="html">&lt;h1 id=&quot;c-学习笔记&quot;&gt;&lt;a href=&quot;#c-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;c++学习笔记&quot;&gt;&lt;/a&gt;c++学习笔记&lt;/h1&gt;&lt;h2 id=&quot;1-宏定义：&quot;&gt;&lt;a href=&quot;#1-宏定义：&quot; class=&quot;headerlink&quot; title=&quot;1.宏定义：&quot;&gt;&lt;/a&gt;1.宏定义：&lt;/h2&gt;</summary>
     
     
     
