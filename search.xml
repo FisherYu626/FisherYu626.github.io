@@ -208,7 +208,8 @@
   <entry>
     <title>详解base64编码</title>
     <url>/2022/01/05/%E8%AF%A6%E8%A7%A3base64%E7%BC%96%E7%A0%81/</url>
-    <content><![CDATA[<h1 id="详解Base64编码"><a href="#详解Base64编码" class="headerlink" title="详解Base64编码"></a>详解Base64编码</h1><h2 id="Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。"><a href="#Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。" class="headerlink" title="Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。"></a>Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。</h2><span id="more"></span>
+    <content><![CDATA[<h1 id="详解Base64编码"><a href="#详解Base64编码" class="headerlink" title="详解Base64编码"></a>详解Base64编码</h1><pre><code> Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。
+</code></pre><span id="more"></span>
 <h3 id="为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？"><a href="#为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？" class="headerlink" title="为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？"></a>为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？</h3><p>​        ASCII码 0-31 127是不可打印字符    32-126是可打印字符</p>
 <p> <img src="https://cdn.jsdelivr.net/gh/FisherYu626/blogImages/images/image-20211009220943567.png" alt="image-20211009220943567"></p>
 <p>​    Base64被用于Http协议下传输二进制数据。（Http是文本协议，没法直接传输二进制数据）</p>
