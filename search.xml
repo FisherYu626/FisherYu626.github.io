@@ -210,10 +210,10 @@
     <url>/2022/01/05/%E8%AF%A6%E8%A7%A3base64%E7%BC%96%E7%A0%81/</url>
     <content><![CDATA[<h1 id="详解Base64编码"><a href="#详解Base64编码" class="headerlink" title="详解Base64编码"></a>详解Base64编码</h1><p>Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。<br><span id="more"></span></p>
 <h3 id="为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？"><a href="#为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？" class="headerlink" title="为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？"></a>为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？</h3><p>​        ASCII码 0-31 127是不可打印字符    32-126是可打印字符<br>ASCII码 0-31 127是不可打印字符    32-126是可打印字符</p>
-<p><img src="addimg/imgs/image-20220106000241874.png" alt="image-20220106000241874"></p>
+<p><img src="https://gitee.com/fisheryu626/blog-pics/raw/master/imgs/image-20220106003030035.png" alt="image-20220106003030035"></p>
 <p>​    Base64被用于Http协议下传输二进制数据。（Http是文本协议，没法直接传输二进制数据）</p>
 <p>​    Base64使用可打印的64个字符表示二进制数据。</p>
-<p><img src="addimg/imgs/image-20220106000457348.png" alt="image-20220106000457348"></p>
+<p><img src="https://gitee.com/fisheryu626/blog-pics/raw/master/imgs/image-20220106000457348.png" alt="image-20220106000457348"></p>
 <p>​    将字符串按照对应的编码转为二进制数值后，每6位作为一个Base64码。每3个字节转为4个Base64码，没有数据则用’=’补上空缺。1字节文本补2个‘=’，2字节文本补1个‘=’。Base64转码后的文本会比原来大1/3。</p>
 <p>​    注意事项：</p>
 <p>​    1）大多数编码是由字符串变为二进制，而Base64将二进制转换为zifuc</p>
