@@ -50,6 +50,12 @@
 <h2 id="2-C-接口（抽象类）"><a href="#2-C-接口（抽象类）" class="headerlink" title="2.C++ 接口（抽象类）"></a>2.C++ 接口（抽象类）</h2><p>如果一个类中至少包含一个纯虚函数，则这个类是一个抽象类。</p>
 <p>纯虚函数在声明时使用“=0”来指定。</p>
 ]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++宏定义</tag>
+      </tags>
   </entry>
   <entry>
     <title>消息队列概述</title>
