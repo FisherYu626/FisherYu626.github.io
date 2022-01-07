@@ -3,7 +3,8 @@
   <entry>
     <title>数组类算法笔记</title>
     <url>/2022/01/07/%E6%95%B0%E7%BB%84%E7%B1%BB%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="数组类算法笔记（双指针）"><a href="#数组类算法笔记（双指针）" class="headerlink" title="数组类算法笔记（双指针）"></a>数组类算法笔记（双指针）</h1><h3 id="两数之和-II-输入有序数组"><a href="#两数之和-II-输入有序数组" class="headerlink" title="两数之和 II - 输入有序数组"></a>两数之和 II - 输入有序数组</h3><p>给定一个已按照 非递减顺序排列  的整数数组 numbers ，请你从数组中找出两个数满足相加之和等于目标数 target 。</p>
+    <content><![CDATA[<h1 id="数组类算法笔记（双指针）"><a href="#数组类算法笔记（双指针）" class="headerlink" title="数组类算法笔记（双指针）"></a>数组类算法笔记（双指针）</h1><span id="more"></span>
+<h3 id="两数之和-II-输入有序数组"><a href="#两数之和-II-输入有序数组" class="headerlink" title="两数之和 II - 输入有序数组"></a>两数之和 II - 输入有序数组</h3><p>给定一个已按照 非递减顺序排列  的整数数组 numbers ，请你从数组中找出两个数满足相加之和等于目标数 target 。</p>
 <p>函数应该以长度为 2 的整数数组的形式返回这两个数的下标值。numbers 的下标 从 1 开始计数 ，所以答案数组应当满足 1 &lt;= answer[0] &lt; answer[1] &lt;= numbers.length 。</p>
 <p>你可以假设每个输入 只对应唯一的答案 ，而且你 不可以 重复使用相同的元素。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">输入：numbers = [2,7,11,15], target = 9</span><br><span class="line">输出：[1,2]</span><br><span class="line">解释：2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。	</span><br></pre></td></tr></table></figure>
