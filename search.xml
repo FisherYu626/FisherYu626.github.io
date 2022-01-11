@@ -74,8 +74,9 @@
   <entry>
     <title>消息队列概述</title>
     <url>/2022/01/02/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><h2 id="1-消息队列概述"><a href="#1-消息队列概述" class="headerlink" title="1.消息队列概述"></a>1.消息队列概述</h2><h3 id="一、-消息队列概述"><a href="#一、-消息队列概述" class="headerlink" title="一、 消息队列概述"></a>一、 消息队列概述</h3><p>消息队列中间件是分布式系统中重要的组件，主要解决应用耦合、异步消息、流量削锋等问题。实现高性能、高可用、可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。</p>
-<p>目前在生产环境，使用较多的消息队列有ActiveMQ、RabbitMQ、ZeroMQ、Kafka、MetaMQ、RocketMQ等。<br><span id="more"></span></p>
+    <content><![CDATA[<h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><span id="more"></span>
+<h2 id="1-消息队列概述"><a href="#1-消息队列概述" class="headerlink" title="1.消息队列概述"></a>1.消息队列概述</h2><h3 id="一、-消息队列概述"><a href="#一、-消息队列概述" class="headerlink" title="一、 消息队列概述"></a>一、 消息队列概述</h3><p>消息队列中间件是分布式系统中重要的组件，主要解决应用耦合、异步消息、流量削锋等问题。实现高性能、高可用、可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。</p>
+<p>目前在生产环境，使用较多的消息队列有ActiveMQ、RabbitMQ、ZeroMQ、Kafka、MetaMQ、RocketMQ等。</p>
 <h3 id="二、-消息队列应用场景"><a href="#二、-消息队列应用场景" class="headerlink" title="二、 消息队列应用场景"></a>二、 消息队列应用场景</h3><p>下面详细介绍一下消息队列在实际应用中常用的使用场景。场景分为异步处理、应用解耦、流量削锋和消息通讯四个场景。</p>
 <h4 id="2-1-异步处理"><a href="#2-1-异步处理" class="headerlink" title="2.1 异步处理"></a>2.1 异步处理</h4><blockquote>
 <p>场景说明：用户注册后，需要发送注册邮件和发送注册信息，传统的做法有两种：串行方式、并行方式</p>
@@ -279,7 +280,8 @@
   <entry>
     <title>详解base64编码</title>
     <url>/2022/01/05/%E8%AF%A6%E8%A7%A3base64%E7%BC%96%E7%A0%81/</url>
-    <content><![CDATA[<h1 id="详解Base64编码"><a href="#详解Base64编码" class="headerlink" title="详解Base64编码"></a>详解Base64编码</h1><p>Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。<br><span id="more"></span></p>
+    <content><![CDATA[<h1 id="详解Base64编码"><a href="#详解Base64编码" class="headerlink" title="详解Base64编码"></a>详解Base64编码</h1><span id="more"></span>
+<p>Base64是网络上最常见的用于传输8bit字节码的编码方式之一，它基于64个可打印字符表示二进制数据。</p>
 <h3 id="为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？"><a href="#为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？" class="headerlink" title="为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？"></a>为什么使用Base64传输2进制字节码，而不是使用ASCII码传输？</h3><p>​        ASCII码 0-31 127是不可打印字符    32-126是可打印字符<br>ASCII码 0-31 127是不可打印字符    32-126是可打印字符</p>
 <p><img src="https://gitee.com/fisheryu626/blog-pics/raw/master/imgs/image-20220106003030035.png" alt="image-20220106003030035"></p>
 <p>​    Base64被用于Http协议下传输二进制数据。（Http是文本协议，没法直接传输二进制数据）</p>
