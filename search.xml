@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>nginx反向代理</title>
+    <url>/2022/01/11/nginx/</url>
+    <content><![CDATA[<h1 id="nginx学习笔记"><a href="#nginx学习笔记" class="headerlink" title="nginx学习笔记"></a>nginx学习笔记</h1><span id="more"></span>
+<h2 id="nginx作用："><a href="#nginx作用：" class="headerlink" title="nginx作用："></a>nginx作用：</h2><ol>
+<li><p>反向代理</p>
+</li>
+<li><p>负载均衡</p>
+</li>
+<li><p>动静分离(缓存)</p>
+</li>
+</ol>
+<h2 id="nginx分配服务器策略"><a href="#nginx分配服务器策略" class="headerlink" title="nginx分配服务器策略"></a>nginx分配服务器策略</h2><ol>
+<li><p>轮询（默认）</p>
+<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器宕机，能够自动剔除。</p>
+</li>
+<li><p>weight</p>
+<p>weight代表权重，默认值为1，权重越高被分配的客户端越多。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">upstream myserver &#123;</span><br><span class="line">	    server 192.168.237.131:8080 weight = 10;</span><br><span class="line">    	server 192.168.237.131:8081 weight =  5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ip_hash</p>
+<p>每个请求访问ip的hash结果分配，这样每个方可固定访问一个后端服务器，可以解决session的问题，例如：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">upstream myserver &#123;</span><br><span class="line">		ip_hash</span><br><span class="line">	    server 192.168.237.131:<span class="number">8080</span> ;</span><br><span class="line">    	server <span class="number">192.168</span><span class="number">.237</span><span class="number">.131</span>:<span class="number">8081</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fair</p>
+<p>按后端服务器的响应时间进行分配，响应时间短优先分配</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">upstream myserver &#123;</span><br><span class="line">	    server 192.168.237.131:<span class="number">8080</span> ;</span><br><span class="line">    	server <span class="number">192.168</span><span class="number">.237</span><span class="number">.131</span>:<span class="number">8081</span> ;</span><br><span class="line">		fair</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p><img src="https://gitee.com/fisheryu626/blog-pics/raw/master/imgs/image-20220111232201962.png" alt="image-20220111232201962"></p>
+<p>动静分离实现方案：</p>
+<ol>
+<li>把静态文件独立成单独的域名，放在独立的服务器上，也是当前主流的方案。</li>
+<li>把动态文件和静态文件混合发布，通过nginx分开。 </li>
+</ol>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数组类算法笔记</title>
     <url>/2022/01/07/%E6%95%B0%E7%BB%84%E7%B1%BB%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="数组类算法笔记（双指针）"><a href="#数组类算法笔记（双指针）" class="headerlink" title="数组类算法笔记（双指针）"></a>数组类算法笔记（双指针）</h1><span id="more"></span>
