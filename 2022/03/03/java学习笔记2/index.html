@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Java学习笔记2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java学习笔记2">
+<meta property="og:url" content="http://example.com/2022/03/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/index.html">
+<meta property="og:site_name" content="FisherYu626">
+<meta property="og:description" content="Java学习笔记2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220225114445278.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220225114853450.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220227165548591.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220301211903343.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220302204559591.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220302210909497.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220303164224606.png">
+<meta property="og:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220303170558372.png">
+<meta property="article:published_time" content="2022-03-03T09:14:19.000Z">
+<meta property="article:modified_time" content="2022-03-03T09:15:29.178Z">
+<meta property="article:author" content="Fisher Yu">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220225114445278.png">
+
+<link rel="canonical" href="http://example.com/2022/03/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>java学习笔记2 | FisherYu626</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9029be5f4e12ce010d95a037066e5a1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="FisherYu626" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+    <div class="container use-motion">
+      <div class="headband"></div>
+
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FisherYu626</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一颗有趣的灵魂~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/FisherYu626" class="github-corner" title="帅哥，快来玩啊~" aria-label="帅哥，快来玩啊~" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+      <main class="main">
+        <div class="main-inner">
+          <div class="content-wrap">
+            
+
+            <div class="content post posts-expand">
+              
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/fisher.jpg">
+      <meta itemprop="name" content="Fisher Yu">
+      <meta itemprop="description" content="学习过程中的一些浅显summries,见谅!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FisherYu626">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java学习笔记2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-03 17:14:19 / 修改时间：17:15:29" itemprop="dateCreated datePublished" datetime="2022-03-03T17:14:19+08:00">2022-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Java学习笔记2"><a href="#Java学习笔记2" class="headerlink" title="Java学习笔记2"></a>Java学习笔记2</h1><span id="more"></span>
+<h2 id="Java学习笔记"><a href="#Java学习笔记" class="headerlink" title="Java学习笔记"></a>Java学习笔记</h2><h3 id="1-可变参数"><a href="#1-可变参数" class="headerlink" title="1.可变参数"></a>1.可变参数</h3><p> 在方法声明中，在指定参数类型后加一个省略号。</p>
+<p> 一个方法只能指定一个可变参数，它必须是方法的最后一个参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.fisher.base;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello,world&quot;</span>);</span><br><span class="line">        demo1 d = <span class="keyword">new</span> demo1();</span><br><span class="line">        d.test(<span class="number">32</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">9</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span>... numbers)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;numbers.length;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;the number &quot;</span>+i+<span class="string">&quot; is &quot;</span>+numbers[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-递归结构2部分"><a href="#2-递归结构2部分" class="headerlink" title="2.递归结构2部分"></a>2.递归结构2部分</h3><ul>
+<li>递归头：什么时候不调用自身方法 终止条件</li>
+<li>地柜体： 什么时候需要调用自身方法</li>
+</ul>
+<h3 id="3-java内存浅析"><a href="#3-java内存浅析" class="headerlink" title="3.java内存浅析"></a>3.java内存浅析</h3><p>Java内存主要由以下三部分组成</p>
+<ol>
+<li><p>堆 </p>
+<ol>
+<li>存放new的对象和数组。</li>
+<li>可以被所有的线程共享，不会存放别的对象引用</li>
+</ol>
+</li>
+<li><p>栈</p>
+<ol>
+<li>存放基本变量类型，包含这个基本类型的具体数值</li>
+<li>引用对象的变量（会存放这个引用在堆里的具体地址）</li>
+</ol>
+</li>
+<li><p>方法区</p>
+<ol>
+<li>可以被所有的线程共享</li>
+<li>包含了所有的class和static变量</li>
+</ol>
+</li>
+</ol>
+<p>声明数组时在栈里创建一个变量 存储的是对象的地址，相当于一个指针（声明）</p>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220225114445278.png" alt="image-20220225114445278" style="zoom: 50%;" /></p>
+<p>创建数组时用引用指向堆中的变量（初始化）</p>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220225114853450.png" alt="image-20220225114853450"  /></p>
+<h3 id="4-数组的三种初始化方法"><a href="#4-数组的三种初始化方法" class="headerlink" title="4.数组的三种初始化方法"></a>4.数组的三种初始化方法</h3><ul>
+<li><p>静态初始化</p>
+<p>定义后不可改变</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">Man[] mans = &#123;<span class="keyword">new</span> Man(<span class="number">1</span>,<span class="number">1</span>),<span class="keyword">new</span> Man(<span class="number">2</span>,<span class="number">2</span>)&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态初始化 动态初始化的过程包含默认初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组的默认初始化</p>
+<p>数组是引用类型，它的元素相当于类的实例变量，因此数组一经分配空间，其中的每个元素按照实例变量同样的方式被隐式初始化。</p>
+</li>
+</ul>
+<h3 id="5-数组的工具类"><a href="#5-数组的工具类" class="headerlink" title="5.数组的工具类"></a>5.数组的工具类</h3><p>数组本身没有方法供大家使用，只有一个array.length可以查看长度。</p>
+<p>Java提供一个数组工具类 java.utils.Arrays </p>
+<p>Arrays类中的方法都是static修饰的静态方法，在使用的时候可以直接使用类名进行调用，不需要使用对象进行调用。</p>
+<p>常用方法：fill()   sort()   equals()  binarySearch()</p>
+<h3 id="6-稀疏数组"><a href="#6-稀疏数组" class="headerlink" title="6.稀疏数组"></a>6.稀疏数组</h3><p>把具有不同值的元素和行列及值存储在一个小规模数组中，从而缩小程序的规模。</p>
+<p>自己构造一个 sum+1行，3列的数组。</p>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220227165548591.png" alt="image-20220227165548591"></p>
+<h3 id="7-类"><a href="#7-类" class="headerlink" title="7.类"></a>7.类</h3><p>一个项目应该只有一个main方法。</p>
+<h3 id="8-new关键字"><a href="#8-new关键字" class="headerlink" title="8.new关键字"></a>8.new关键字</h3><p>使用new关键字创建的时候，除了分配内存空间以外，还会给创建好的对象进行默认的初始化以及类内构造器的调用。</p>
+<p>构造器有以下两个特点：</p>
+<ul>
+<li><p>必须和类的名字相同</p>
+</li>
+<li><p>必须没有返回类型，也不能写void</p>
+</li>
+<li><p>一旦定义有参构造，必须显示定义无参构造</p>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220301211903343.png" alt="image-20220301211903343"></p>
+</li>
+</ul>
+<h3 id="9-引用"><a href="#9-引用" class="headerlink" title="9.引用"></a>9.引用</h3><p>除了八个基本类型以外的变量类型都为引用类型。</p>
+<p>对象通过引用来操作： 栈 ——》堆</p>
+<h3 id="10-面向对象三大概念——封装"><a href="#10-面向对象三大概念——封装" class="headerlink" title="10.面向对象三大概念——封装"></a>10.面向对象三大概念——封装</h3><ul>
+<li><p>封装 大多时候针对属性而言</p>
+<p>封装意义：</p>
+<ol>
+<li>提高程序安全性，保护yins</li>
+<li>隐藏代码实现细节</li>
+<li>统一接口</li>
+<li>系统可维护性增加</li>
+</ol>
+<ul>
+<li><p>该露的露，该藏的藏</p>
+<ul>
+<li>设计要求 高内聚、低耦合<ul>
+<li>高内聚 类的内部数据操作细节自己完成，不允许外部干涉</li>
+<li>低耦合 仅暴露少量的方法给外部使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据的隐藏</p>
+<p>通常 应禁止直接访问一个对象中数据的实际表示，而应通过操作接口来访问，这称为信息隐藏。</p>
+</li>
+<li><p>属性私有，get/set</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-面向对象三大概念——继承"><a href="#11-面向对象三大概念——继承" class="headerlink" title="11.面向对象三大概念——继承"></a>11.面向对象三大概念——继承</h3><ul>
+<li>继承的本质 是对某一批类的抽象，从而实现对现实世界更好的建模。</li>
+<li>extands的含义是扩展，子类是父类的一种扩展</li>
+<li><p>Java中的类只有单继承，没有多继承</p>
+</li>
+<li><p>Java中所有的类都默认直接或者间接继承Object类</p>
+</li>
+<li>子类和父类的关系为 子类is a 父类</li>
+</ul>
+<p>idea查看继承关系快捷键 control+H</p>
+<ul>
+<li>私有的属性、方法无法被继承</li>
+</ul>
+<h3 id="12-super注意点"><a href="#12-super注意点" class="headerlink" title="12.super注意点"></a>12.super注意点</h3><ol>
+<li>super（）调用父类的构造方法，必须在构造方法的第一行</li>
+<li>super必须只能出现在子类的方法或者构造方法中</li>
+<li>super和this不能同时调用构造方法</li>
+</ol>
+<p>super和this 的不同：</p>
+<p>代表的对象不同：</p>
+<ul>
+<li>this 调用者这个对象</li>
+<li>super 代表父类对象的引用</li>
+</ul>
+<p>前提：</p>
+<ul>
+<li>this没有继承也能用</li>
+<li>super 只有继承条件才可以使用</li>
+</ul>
+<p>构造方法：</p>
+<ul>
+<li>this 用来调用本类的构造方法</li>
+<li>super 用来调用父类的构造方法</li>
+</ul>
+<h3 id="13-方法重写"><a href="#13-方法重写" class="headerlink" title="13.方法重写"></a>13.方法重写</h3><p>重写都是方法的重写 与属性无关</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;this is Pearson test&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;this is Student test&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person A = <span class="keyword">new</span> Student();</span><br><span class="line">        Student B = <span class="keyword">new</span> Student();</span><br><span class="line"></span><br><span class="line">        A.test();</span><br><span class="line">        B.test();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220302204559591.png" alt="image-20220302204559591"></p>
+<p>注解：有功能的注释</p>
+<p>alt+insert 万能键、</p>
+<p>重写需要有继承关系 子类重写父类的方法</p>
+<ol>
+<li>方法名必须相同</li>
+<li>参数列表必须相同</li>
+<li>修饰符：范围可以扩大 但不能缩小public&gt;protected&gt;Default&gt;private</li>
+<li>抛出的异常：异常的范围可以被缩小 但不能扩大</li>
+</ol>
+<p>重写 子类的方法和父类要一致，方法体不同</p>
+<p>为什么要重写？</p>
+<ol>
+<li><p>父类的功能，子类不一定需要，或者不一定满足！</p>
+<p>alt+Insert : opverride</p>
+</li>
+</ol>
+<h3 id="14-面向对象三大概念——多态"><a href="#14-面向对象三大概念——多态" class="headerlink" title="14.面向对象三大概念——多态"></a>14.面向对象三大概念——多态</h3><ul>
+<li><p>同一方法可以根据发送对象的不同采用多种不同的行为方式</p>
+</li>
+<li><p>一个对象的实际类型是确定的，但可以指向对象的引用类型有很多。 （父类，有关系的类）</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.fisher.duotai;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Fisheryu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/3/2 20:51</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Person run&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.fisher.duotai;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Fisheryu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/3/2 20:52</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Student run&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Student eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.fisher.duotai;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Fisheryu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/3/2 20:51</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//一个对象的实际类型是确定的</span></span><br><span class="line">        <span class="comment">//new Student();</span></span><br><span class="line">        <span class="comment">//new Person();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//可以指向的引用类型不确定，父类的引用可以指向子类</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//Student引用能调用的方法都是自己的 或者 继承父类的方法</span></span><br><span class="line">        Student s1 = <span class="keyword">new</span> Student();</span><br><span class="line">        <span class="comment">//Person父类型可以指向子类 但是不能调用子类独有的方法</span></span><br><span class="line">        Person s2 = <span class="keyword">new</span> Student();</span><br><span class="line">        Object s3 = <span class="keyword">new</span> Student();</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//对象能执行哪些方法，主要看对象左边的类型，和右边的关系不大</span></span><br><span class="line">        s1.run();<span class="comment">//子类重写了父类的方法，则执行子类的方法 具体运行的方法是根据运行期间确定的，而不是根据引用</span></span><br><span class="line">        s2.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220302210909497.png" alt="image-20220302210909497"></p>
+<ul>
+<li>多态是方法的多态</li>
+<li>父类和子类之间有联系 需要继承关系（类型转换异常）ClassCastEXception！</li>
+<li>存在的条件： 继承关系 方法需要重写 父类引用指向子类</li>
+</ul>
+<p>静态方法属于类 不属于任何一个实例 不能被重写</p>
+<p>final 修饰的方法 在常量池中 不能重写</p>
+<p>private方法不能重写</p>
+<p>总结：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object object = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure>
+<ol>
+<li>父类引用指向子类对象</li>
+<li>把子类转换为父类，向上转型，可能会丢失原来的一些方法。</li>
+<li>把父类转换为子类，向下转型，强制转换。</li>
+<li>方便放发的调用，减少重复的代码，简洁。</li>
+</ol>
+<h3 id="15-instanceof-类型转换（引用类型的类型转换）"><a href="#15-instanceof-类型转换（引用类型的类型转换）" class="headerlink" title="15.instanceof 类型转换（引用类型的类型转换）"></a>15.instanceof 类型转换（引用类型的类型转换）</h3><p>instanceof 判断一个对象是个什么类型</p>
+<p>X instance Y </p>
+<p>编译能不能通过根据X是否是Y的子类型</p>
+<p>运行结果是不是true根据X实际执行的对象是会不是Y的子类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Object object = <span class="keyword">new</span> Student();</span><br><span class="line">        Person person = <span class="keyword">new</span> Student();</span><br><span class="line">        Student student = <span class="keyword">new</span> Student();</span><br><span class="line"></span><br><span class="line">        System.out.println(object <span class="keyword">instanceof</span> Student);</span><br><span class="line">        System.out.println(object <span class="keyword">instanceof</span> Person);</span><br><span class="line">        System.out.println(object <span class="keyword">instanceof</span> Object);</span><br><span class="line">        System.out.println(object <span class="keyword">instanceof</span> Teacher);</span><br><span class="line">        System.out.println(object <span class="keyword">instanceof</span> String);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(person <span class="keyword">instanceof</span> Student);</span><br><span class="line">        System.out.println(person <span class="keyword">instanceof</span> Person);</span><br><span class="line">        System.out.println(person <span class="keyword">instanceof</span> Object);</span><br><span class="line">        System.out.println(person <span class="keyword">instanceof</span> Teacher);</span><br><span class="line">        <span class="comment">//编译直接出错</span></span><br><span class="line">        <span class="comment">// System.out.println(person instanceof String);</span></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;------------------------&quot;</span>);</span><br><span class="line">        System.out.println(student <span class="keyword">instanceof</span> Student);</span><br><span class="line">        System.out.println(student <span class="keyword">instanceof</span> Person);</span><br><span class="line">        System.out.println(student <span class="keyword">instanceof</span> Object);</span><br><span class="line">        <span class="comment">//编译直接出错</span></span><br><span class="line">        <span class="comment">//System.out.println(student instanceof Teacher);</span></span><br><span class="line">        <span class="comment">//System.out.println(student instanceof String);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220303164224606.png" alt="image-20220303164224606" style="zoom:67%;" /></p>
+<h3 id="16-static关键字"><a href="#16-static关键字" class="headerlink" title="16.static关键字"></a>16.static关键字</h3><ul>
+<li><p>static修饰属性</p>
+<p>静态属性可以直接通过类名访问</p>
+<p>静态属性是某个类中所有对象共享的</p>
+<p>1、在内存中存放位置不同  所有带static修饰符的属性或者方法都存放在内存中的方法区 而非静态属性存放在内存中的堆区</p>
+<p>2、出现时机不同  静态属性或方法在没创建对象之前就已经存在 而非静态属性在创建对象之后才存在</p>
+<p>3、静态属性是在某个类中的所有对象是共享的</p>
+<p>4、生命周期不同 静态属性在类消失之后才销毁 而非晶态属性在对象销毁之后才销毁</p>
+<p>5、用法：</p>
+<p>　　a.静态属性可以直接通过类名直接访问 非静态属性不能通过类直接访问只能通过对象访问</p>
+<p>　　b.二者的相同点是都可以在创建完对象后使用下面看个静态属性是在某个类中的所有对象是共享的例子 </p>
+</li>
+<li><p>static修饰方法 属于类的方法</p>
+</li>
+<li><p>static匿名代码块</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建对象时会在构造方法前加载匿名代码块 用于赋初值</span></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;匿名代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//加载类的时候会调用静态代码块 只执行一次</span></span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person person = <span class="keyword">new</span> Person();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://fisherpics.oss-cn-beijing.aliyuncs.com/imgs/image-20220303170558372.png" alt="image-20220303170558372"></p>
+<ul>
+<li><p>静态import</p>
+<p>静态导入包 导入包里的静态方法和静态属性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.random;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.PI;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="17-final关键字"><a href="#17-final关键字" class="headerlink" title="17.final关键字"></a>17.final关键字</h3><p>  final修饰的类不能再被继承 （final之后断子绝孙）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/01/%E6%95%B0%E7%BB%84%E7%B1%BB%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B02/" rel="prev" title="数组类算法笔记2">
+      <i class="fa fa-chevron-left"></i> 数组类算法笔记2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+            </div>
+            
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+          </div>
+            
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02"><span class="nav-number">1.</span> <span class="nav-text">Java学习笔记2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.1.</span> <span class="nav-text">Java学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.可变参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%80%92%E5%BD%92%E7%BB%93%E6%9E%842%E9%83%A8%E5%88%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.递归结构2部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-java%E5%86%85%E5%AD%98%E6%B5%85%E6%9E%90"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.java内存浅析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.数组的三种初始化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%95%B0%E7%BB%84%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.数组的工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.6.</span> <span class="nav-text">6.稀疏数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E7%B1%BB"><span class="nav-number">1.1.7.</span> <span class="nav-text">7.类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-new%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.8.</span> <span class="nav-text">8.new关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E5%BC%95%E7%94%A8"><span class="nav-number">1.1.9.</span> <span class="nav-text">9.引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5%E2%80%94%E2%80%94%E5%B0%81%E8%A3%85"><span class="nav-number">1.1.10.</span> <span class="nav-text">10.面向对象三大概念——封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.11.</span> <span class="nav-text">11.面向对象三大概念——继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-super%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">1.1.12.</span> <span class="nav-text">12.super注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99"><span class="nav-number">1.1.13.</span> <span class="nav-text">13.方法重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81"><span class="nav-number">1.1.14.</span> <span class="nav-text">14.面向对象三大概念——多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-instanceof-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="nav-number">1.1.15.</span> <span class="nav-text">15.instanceof 类型转换（引用类型的类型转换）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.16.</span> <span class="nav-text">16.static关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-final%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.17.</span> <span class="nav-text">17.final关键字</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fisher Yu"
+      src="/images/fisher.jpg">
+  <p class="site-author-name" itemprop="name">Fisher Yu</p>
+  <div class="site-description" itemprop="description">学习过程中的一些浅显summries,见谅!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          
+
+          
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fisher Yu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">33k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">30 分钟</span>
+
+
+
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+          
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </footer>
+    </div>
+  
+
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/schemes/click.js"></script>
+
