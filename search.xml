@@ -912,7 +912,7 @@
       </tags>
   </entry>
   <entry>
-    <title>树算法笔记</title>
+    <title>链表算法笔记</title>
     <url>/2022/04/17/%E9%93%BE%E8%A1%A8%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="链表算法笔记"><a href="#链表算法笔记" class="headerlink" title="链表算法笔记"></a>链表算法笔记</h1><span id="more"></span>
 <h2 id="1-删除链表的倒数第n个节点"><a href="#1-删除链表的倒数第n个节点" class="headerlink" title="1.删除链表的倒数第n个节点"></a>1.删除链表的倒数第n个节点</h2><p>凡是头结点可能发生变化，先建立一个虚拟头结点。</p>
